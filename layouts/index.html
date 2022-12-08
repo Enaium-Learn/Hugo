@@ -7,6 +7,10 @@
     <title>{{ .Title }}</title>
 </head>
 <body>
-    {{ .Content }}
+    {{ with .Site.GetPage "/post" }}
+        {{ range .Pages }}
+            <p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
+        {{ end }}
+    {{ end }}
 </body>
 </html>
